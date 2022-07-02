@@ -1,0 +1,37 @@
+name: Update Availability
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  push:
+    branches: [ master ]
+jobs:
+  update-availability:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "3.8"
+
+      - name: Install requests
+        run: pip install requests==2.27.1
+
+      - name: Run availability check
+        id: script
+        run: python scripts/update-availability.py
+
+      - name: Get Timestamp
+        if: ${{ steps.script.outputs.updated }}
+        id: timestamp
+        run: echo ::set-output name=value::$(date +%s)
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        if: ${{ steps.script.outputs.updated }}
+        with:
+          commit-message: "fix(): update availability"
+          title: "fix(): update availability ${{ steps.timestamp.outputs.value }}"
+          body: |
+            - update availability
+          branch: update-availability-${{ steps.timestamp.outputs.value }}
