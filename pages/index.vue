@@ -1168,7 +1168,7 @@ html, body {
     place-content: center;
     border-radius: 2px;
     flex-grow: 1;
-    box-shadow: 0 0 30px 4px #BC0000;
+    box-shadow: 0 0 30px 4px #ff000045;;
     background-color: #fff;
 
 
@@ -1227,7 +1227,7 @@ html, body {
 
     &#{$class-name}--available {
         opacity: 1;
-        box-shadow: 0 0 30px 10px #BC0000;
+        box-shadow: 0 0 30px 10px #ff000045;
 
         &:hover {
             box-shadow: 0 0 30px 10px #BC0000, 0 0 0 6px #BC0000;
