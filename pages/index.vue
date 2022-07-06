@@ -231,8 +231,8 @@
                 </div>
 
                 <div class="header__info">
-                    <b>cuteboi</b> is a software supply chain threat actor which has published <b>{{items.length }}</b> malicious packages.
-                    <a target="_blank" href="https://medium.com/checkmarx-security/">As Checkmarx uncovered</a>, this attacker has demonstrated new techniques that power him with automated NPM account creation.
+                    <b>CuteBoi</b> is a software supply chain threat actor which has published <b>{{items.length }}</b> malicious packages.
+                    <a target="_blank" href="https://checkmarx.com/blog/cuteboi-detected-preparing-a-large-scale-crypto-mining-campaign-on-npm-users/">As Checkmarx uncovered</a>, this attacker has demonstrated new techniques that power him with automated NPM account creation.
                     <br>
                     <br>
                     This open-source project tracks <b>cuteboi</b>'s activity over time as there are evidence the actor
