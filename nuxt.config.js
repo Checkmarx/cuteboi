@@ -2,6 +2,9 @@ export default {
   server: {
     host: '0'
   },
+  router: {
+    base: '/cuteboi/'
+  },
   ssr: false,
   target: 'static',
   head: {
