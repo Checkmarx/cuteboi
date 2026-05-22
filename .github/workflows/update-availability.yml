@@ -4,13 +4,19 @@ on:
     - cron: '0 0 * * *'
   push:
     branches: [ master ]
+permissions:
+  contents: read
+
 jobs:
   update-availability:
-    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # for peter-evans/create-pull-request to create branch
+      pull-requests: write  # for peter-evans/create-pull-request to create a PR
+    runs-on: cx-public-ubuntu-x64
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
 
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@3542bca2639a428e1796aaa6a2ffef0c0f575566 # v3.1.4
         with:
           python-version: "3.8"
 
@@ -27,7 +33,7 @@ jobs:
         run: echo ::set-output name=value::$(date +%s)
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@18f7dc018cc2cd597073088f7c7591b9d1c02672 # v3.14.0
         if: ${{ steps.script.outputs.updated }}
         with:
           commit-message: "fix(): update availability"
