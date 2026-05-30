@@ -27,7 +27,7 @@ jobs:
         run: npm run generate
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3.9.3
+        uses: step-security/actions-gh-pages@db28a5e317d585916043c4acc5a4319ab3da9275 # v4.0.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist

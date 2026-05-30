@@ -33,7 +33,7 @@ jobs:
         run: echo ::set-output name=value::$(date +%s)
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@18f7dc018cc2cd597073088f7c7591b9d1c02672 # v3.14.0
+        uses: step-security/create-pull-request@50c103da2b9ca12cd5bc013fc6931051a5aa872b # v8.1.1
         if: ${{ steps.script.outputs.updated }}
         with:
           commit-message: "fix(): update availability"
